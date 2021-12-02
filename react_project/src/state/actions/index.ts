@@ -5,4 +5,9 @@ interface AddMessageAction {
     payload: string
 }
 
-export type MessageAction = AddMessageAction;
+interface RemoveMessageAction {
+    type: ActionType.REMOVEMESSAGE,
+    payload: number
+}
+
+export type MessageAction = AddMessageAction | RemoveMessageAction;

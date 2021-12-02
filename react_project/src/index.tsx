@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import {Provider} from "react-redux";
 import {store} from "./state";
-
+import './fontawesome.ts';
 
 ReactDOM.render(
   <React.StrictMode>

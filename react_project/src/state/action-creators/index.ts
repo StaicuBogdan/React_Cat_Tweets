@@ -10,3 +10,12 @@ export const addMessage = (message: string) => {
         });
     };
 };
+
+export const removeMessage = (messageId: number) => {
+    return (dispatch: Dispatch<MessageAction>) =>{
+        dispatch({
+            type: ActionType.REMOVEMESSAGE,
+            payload: messageId
+        });
+    }
+}
