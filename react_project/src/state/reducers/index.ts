@@ -1,8 +1,10 @@
 import {combineReducers} from "redux";
 import messageReducer from "./messageReducer";
+import loginReducer from "./loginReducer";
 
 const reducers = combineReducers({
-    message: messageReducer
+    message: messageReducer,
+    login: loginReducer
 });
 
 export default reducers;

@@ -10,4 +10,15 @@ interface RemoveMessageAction {
     payload: number
 }
 
+interface LoginUserAction {
+    type: ActionType.LOGIN,
+    payload: string
+}
+
+interface LogoutUserAction {
+    type: ActionType.LOGOUT
+}
+
+
+export type LoginAction = LoginUserAction | LogoutUserAction;
 export type MessageAction = AddMessageAction | RemoveMessageAction;
