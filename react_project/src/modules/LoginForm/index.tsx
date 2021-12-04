@@ -27,7 +27,7 @@ const LoginForm = () => {
     return (
         <>
             <form>
-                <h1>Enter your name</h1>
+                <h3>Enter your name</h3>
                 <input placeholder={'write here...'} value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
                 <button type="submit" onClick={handleSubmit}><FontAwesomeIcon icon={['fas', 'sign-in-alt']}/>  Start</button>
             </form>
