@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
-import {actionCreators, State} from "../../state";
+import {actionCreators} from "../../state";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const LoginForm = () => {
     let navigate = useNavigate();
     const dispatch = useDispatch();
     const { loginUser } =  bindActionCreators(actionCreators, dispatch);
-    const userName = useSelector((state: State) => state.login);
 
     const [inputValue, setInputValue] = useState('');
 
@@ -20,7 +19,7 @@ const LoginForm = () => {
             navigate("/home", {replace: true});
         }
         else{
-            alert("Your name can't be empty, loser !!!");
+            alert("Your name can't be empty!");
         }
     }
 

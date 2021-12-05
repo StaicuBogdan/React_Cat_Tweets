@@ -1,39 +1,24 @@
-import {useDispatch, useSelector} from "react-redux";
-import {bindActionCreators} from "redux";
-import {actionCreators, State} from "../../state";
+import {useSelector} from "react-redux";
+import {State} from "../../state";
 import React from "react";
-import {useNavigate} from "react-router-dom";
-import CommentInput from "../../components/CommentInputComponent";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CommentList from "../../components/CommentListComponent";
+
+import CommentSection from "../../modules/CommentSection";
+import LogoutButton from "../../modules/LogOutButton";
+
+import CatTweet from "../../modules/CatTweet";
 
 const HomePage = () => {
-    let navigate = useNavigate();
-    const dispatch = useDispatch();
-    const { logoutUser } =  bindActionCreators(actionCreators, dispatch);
     const messages = useSelector((state: State) => state.message);
     const userName = useSelector((state: State) => state.login);
 
-    function handleLogout(event: React.MouseEvent<HTMLButtonElement, MouseEvent>){
-        event.preventDefault();
-        logoutUser();
-        navigate("/", {replace: true});
-    }
-
     return (
         <>
-            <div className="ButtonDiv">
-                <div/>
-                <div/>
-                <button className="LogoutButton" onClick={handleLogout}><FontAwesomeIcon icon={['fas', 'door-open']}/> Logout </button>
-            </div>
+            <LogoutButton />
             <div className="Home">
-                <h2>Welcome, {userName}!!</h2>
-
-
-                <CommentInput />
-
-                <CommentList comments={messages}/>
+                {userName && <h1>Welcome, {userName}!!</h1>}
+                {!userName && <h1>Welcome, Random User!!</h1>}
+                <CatTweet />
+                <CommentSection comments={messages}/>
             </div>
         </>
 

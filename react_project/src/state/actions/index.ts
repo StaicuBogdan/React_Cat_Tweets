@@ -19,6 +19,5 @@ interface LogoutUserAction {
     type: ActionType.LOGOUT
 }
 
-
 export type LoginAction = LoginUserAction | LogoutUserAction;
 export type MessageAction = AddMessageAction | RemoveMessageAction;

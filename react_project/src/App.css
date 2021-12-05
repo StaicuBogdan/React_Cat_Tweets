@@ -70,7 +70,7 @@
   border-radius: 10px;
 }
 
-.ButtonDiv {
+.LogoutButtonDiv {
   height: 4vh;
   width: 100vw;
   position: fixed;
@@ -93,15 +93,81 @@
   flex-direction: column;
   align-items: center;
   width: 800px;
+  max-width: 800px;
   margin: auto;
-  padding: 3rem;
+  gap: 3em;
+}
+
+.CommentInput {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.CommentInput textarea {
+  border-radius: 10px;
+  background-color: beige;
+  height: 6em;
+  font-size: 2em;
+  width: 80%;
+  max-width: 80%;
+  margin: auto;
+  padding: 2%;
+}
+
+.CommentInput button {
+  background-color: forestgreen;
+  border-radius: 12px;
+  max-width: 20em;
+  margin: auto;
+  font-size: 1.5em;
+  padding: 6px 10px;
 }
 
 .CommentList {
   display: flex;
   flex-direction: column;
-  width: 90%;
-  margin: auto;
-  font-size: 2em;
+  max-width: 100%;
+  gap: 1rem;
+  width: 96%;
+  background-color: #283349;
+  padding: 2%;
 }
 
+.Comment {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  border-radius: 10px;
+  background-color: #5B667C;
+}
+
+.Comment div {
+  word-break: break-all;
+  font-size: 2em;
+  padding: 1%;
+}
+
+.Comment button {
+  border-radius: 10px;
+  max-width: 10em;
+  background-color: darkred;
+  align-self: flex-end;
+  font-size: 1.5em;
+  padding: 6px 10px;
+}
+
+.CatTweet {
+  padding: 2%;
+  width: 60%;
+  max-width: 60%;
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.4em;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
