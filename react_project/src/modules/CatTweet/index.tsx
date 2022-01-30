@@ -5,28 +5,33 @@ import React, {useEffect, useState} from "react";
 
 const CatTweet = () => {
     const [fact, setFact] = useState({data: ""});
-    const colors = ["#78a83f", "#9fa400", "#794141", "#00a466",
+    const [currentColor, setCurrentColor] = useState(Math.floor(Math.random()*16777215).toString(16));
+    /*const colors = ["#78a83f", "#9fa400", "#794141", "#00a466",
         "#0082e6", "#3366ac", "#323a86", "#a873f2",
         "#b078b0", "#a54700", "#b69d11", "#714a0e",
         "#677659", "#4c852c", "#a97c00"]
     const oldColor = "";
+    */
+
+    useEffect(() => {
+        // @ts-ignore
+        document.getElementById("twitterIcon").style.color = "#" + currentColor;
+        // @ts-ignore
+        document.getElementById("factButton").style.backgroundColor = "#" + currentColor;
+        document.body.style.backgroundColor ="#" + currentColor;
+    }, [currentColor]);
 
     useEffect(() => {
         axios.get("https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=1").then((result) => {
-            setFact({data: result.data.text})
+            setFact({data: result.data.text});
         });
-    }, [])
+    }, []);
 
     function getFact(){
         axios.get("https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=1").then((result) => {
             setFact({data: result.data.text})
-            let currentColor = colors[Math.floor(Math.random()*15)];
-            // @ts-ignore
-            document.getElementById("twitterIcon").style.color = currentColor;
-            // @ts-ignore
-            document.getElementById("factButton").style.backgroundColor = currentColor;
-            document.body.style.backgroundColor = currentColor;
-
+            //let currentColor = colors[Math.floor(Math.random()*15)];
+            setCurrentColor(Math.floor(Math.random()*16777215).toString(16));
         });
     }
 

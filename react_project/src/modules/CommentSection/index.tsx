@@ -36,7 +36,7 @@ const CommentSection = ({comments}:Props) => {
             {comments.length !== 0 && <div className="CommentList">
                 {comments.map( (message: string, idx: number) => {
                     return (
-                        <Comment id={idx} message={message} />
+                        <Comment id={idx} key={idx} message={message} />
                     )
                 })}
             </div>}

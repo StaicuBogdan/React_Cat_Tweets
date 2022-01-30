@@ -5,18 +5,19 @@ import {bindActionCreators} from "redux";
 import {actionCreators} from "../../state";
 
 interface CommentProps {
-    id: number,
-    message: string
+    key: number,
+    message: string,
+    id: number
 }
 
-const Comment = ({id, message}: CommentProps) => {
+const Comment = (props: CommentProps) => {
     const dispatch = useDispatch();
     const { removeMessage } =  bindActionCreators(actionCreators, dispatch);
 
     return(
-        <div className="Comment" key={id}>
-            <div>{message}</div>
-            <button onClick={() => removeMessage(id)}> <FontAwesomeIcon icon={['fas', 'trash-alt']}/> Delete </button>
+        <div className="Comment" key={props.id}>
+            <div>{props.message}</div>
+            <button onClick={() => removeMessage(props.id)}> <FontAwesomeIcon icon={['fas', 'trash-alt']}/> Delete </button>
         </div>
     )
 }
