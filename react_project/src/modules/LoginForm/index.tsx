@@ -11,15 +11,16 @@ const LoginForm = () => {
     const { loginUser } =  bindActionCreators(actionCreators, dispatch);
 
     const [inputValue, setInputValue] = useState('');
+    const [passwordValue, setPasswordValue] = useState('');
 
     function handleSubmit(event: React.MouseEvent<HTMLButtonElement, MouseEvent>){
         event.preventDefault();
-        if(inputValue !== ''){
+        if(inputValue !== '' && passwordValue !==''){
             loginUser(inputValue);
             navigate("/home", {replace: true});
         }
         else{
-            alert("Your name can't be empty!");
+            alert("Your name and/or password can't be empty!");
         }
     }
 
@@ -28,6 +29,7 @@ const LoginForm = () => {
             <form>
                 <h3>Enter your name</h3>
                 <input placeholder={'write here...'} value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
+                <input type="password" placeholder={'password...'} value={passwordValue} onChange={(e) => setPasswordValue(e.target.value)}/>
                 <button type="submit" onClick={handleSubmit}><FontAwesomeIcon icon={['fas', 'sign-in-alt']}/>  Start</button>
             </form>
         </>

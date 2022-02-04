@@ -55,11 +55,16 @@
   align-items: center;
 }
 
+.Login form h3{
+  margin-bottom: -1%;
+}
+
 .Login form input {
   font-size: 1.5rem;
   width: 90%;
-  height: 2em;
+  height: 2.5em;
   padding-left: 3%;
+  margin-top: 5%;
 }
 .Login form button {
   font-size: 1.5rem;
